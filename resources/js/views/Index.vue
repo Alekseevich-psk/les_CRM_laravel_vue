@@ -8,13 +8,10 @@
 </template>
 
 <script>
-
-export default({
-    methods: {
-        foo: () => {
-            console.log('test');
-        }
+    export default {
+        name: "Index"
     }
-})
-
 </script>
+
+<style scoped>
+</style>

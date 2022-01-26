@@ -7,7 +7,12 @@
 <section>
 
     <div id="app" class="uk-container">
-        <test-component></test-component>
+        <header-component></header-component>
+        <main style="margin-top: 20px;">
+            <div class="uk-container">
+                <router-view></router-view>
+            </div>
+        </main>
     </div>
 
 </section>
