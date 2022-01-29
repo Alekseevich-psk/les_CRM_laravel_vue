@@ -2085,8 +2085,7 @@ __webpack_require__.r(__webpack_exports__);
       mainNav: _router__WEBPACK_IMPORTED_MODULE_0__["default"].options.routes
     };
   },
-  mounted: function mounted() {
-    console.log(this.mainNav);
+  mounted: function mounted() {// console.log(this.mainNav)
   }
 });
 
@@ -2143,6 +2142,9 @@ __webpack_require__.r(__webpack_exports__);
         return _this.res = response.data;
       });
       this.is_ready = true;
+      setTimeout(function () {
+        _this.spinner = false;
+      }, 1000);
     }
   }
 });

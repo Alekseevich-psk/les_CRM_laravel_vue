@@ -21,7 +21,7 @@ export default ({
         }
     },
     mounted: function() {
-        console.log(this.mainNav)
+        // console.log(this.mainNav)
     },
 })
 

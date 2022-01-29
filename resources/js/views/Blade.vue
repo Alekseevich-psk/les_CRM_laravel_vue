@@ -33,10 +33,13 @@
         methods: {
             getData: function() {
                 this.spinner = true;
+
                 this.axios
                     .get('/api/get')
                     .then(response => (this.res = response.data));
                 this.is_ready = true;
+
+                setTimeout(()=> { this.spinner = false }, 1000);
             }
         }
     }
