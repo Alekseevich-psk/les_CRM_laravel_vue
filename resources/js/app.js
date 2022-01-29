@@ -14,9 +14,6 @@ import HeaderComponent from './components/HeaderComponent.vue'
 new Vue({
     el: '#app',
     router,
-    mounted: function() {
-        // console.log(router)
-    },
     components: {
         HeaderComponent
     }

@@ -3,8 +3,7 @@
         <nav class="uk-navbar-container" uk-navbar>
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
-                    <li><router-link to="/" tag="a">Главная</router-link></li>
-                    <li><router-link to="/blade-vue" tag="a">Blade->vue</router-link></li>
+                    <li v-for="item in mainNav" :key="item.id"><router-link :to="item.path" tag="a">{{item.title}}</router-link></li>
                 </ul>
             </div>
         </nav>
@@ -13,8 +12,17 @@
 
 <script>
 
-export default ({
+import router from "../router";
 
+export default ({
+    data: function() {
+        return{
+            mainNav: router.options.routes,
+        }
+    },
+    mounted: function() {
+        console.log(this.mainNav)
+    },
 })
 
 </script>
