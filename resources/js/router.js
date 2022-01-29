@@ -11,7 +11,7 @@ const routes = [
     {
         path: "/",
         component: Index,
-        title: 'Главная'
+        title: 'Hello'
     },
     {
         path: "/blade-vue",
@@ -21,7 +21,7 @@ const routes = [
     {
         path: "/chart",
         component: Chart,
-        title: 'Графики'
+        title: 'Chart.js'
     }
 ];
 
