@@ -5,7 +5,6 @@
                 <ul class="uk-navbar-nav">
                     <li><router-link to="/" tag="a">Главная</router-link></li>
                     <li><router-link to="/blade-vue" tag="a">Blade->vue</router-link></li>
-                    <!-- <router-link to="/bar">Перейти к Bar</router-link> -->
                 </ul>
             </div>
         </nav>
@@ -15,7 +14,7 @@
 <script>
 
 export default ({
-    
+
 })
 
 </script>

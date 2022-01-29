@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/{any}', function () {
     return view('index');
 })->where('any', '.*');
+
+/*Route::get('/', function() {
+    return view('index');
+});*/
+
+//Route::get('/get', [VueController::class, 'startVue']);
