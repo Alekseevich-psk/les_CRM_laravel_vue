@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class VueController extends Controller
 {
@@ -21,17 +19,16 @@ class VueController extends Controller
         $this->data = $request->chData;
 
         return $this->regArrForChartLine($request->message);
-
     }
 
     private function regArrForChartLine($param)
     {
 
-        if(isset($param) && $param != 0) {
-            array_push( $this->data, $param );
-            $index = end( $this->labels );
+        if (isset($param) && $param != 0) {
+            array_push($this->data, $param);
+            $index = end($this->labels);
             $index++;
-            array_push( $this->labels, $index++ );
+            array_push($this->labels, $index++);
         }
 
         return [
@@ -43,9 +40,7 @@ class VueController extends Controller
                     'data' => $this->data,
                 ]
             ],
-            'shData' => $this->data,
-            
+            'shData' => $this->data
         ];
     }
-
 }

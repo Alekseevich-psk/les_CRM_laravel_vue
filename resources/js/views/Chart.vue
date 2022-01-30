@@ -21,7 +21,7 @@
                     Добавить
                 </button>
             </form>
-            <br>
+            <br />
         </div>
     </div>
 </template>
