@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import ChartComponent from "../components/ChartComponent.js";
+import ChartComponent from "../components/chart/ChartComponent.js";
 
 export default {
     components: {

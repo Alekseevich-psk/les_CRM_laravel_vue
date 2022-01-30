@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 class VueController extends Controller
@@ -19,6 +20,11 @@ class VueController extends Controller
         $this->data = $request->chData;
 
         return $this->regArrForChartLine($request->message);
+    }
+
+    public function getCbData()
+    {
+        return 'test df';
     }
 
     private function regArrForChartLine($param)

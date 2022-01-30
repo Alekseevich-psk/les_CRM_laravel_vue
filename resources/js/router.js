@@ -6,6 +6,7 @@ Vue.use(vueRouter);
 import Index from "./views/Index";
 import Blade from "./views/Blade";
 import Chart from "./views/Chart";
+import Cb from "./views/CB";
 
 const routes = [
     {
@@ -22,6 +23,11 @@ const routes = [
         path: "/chart-line",
         component: Chart,
         title: 'Chart-line'
+    },
+    {
+        path: "/chart-cb",
+        component: Cb,
+        title: 'Chart-CB'
     }
 ];
 
