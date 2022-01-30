@@ -24,7 +24,7 @@ class VueController extends Controller
 
     public function getCbData()
     {
-        return 'test df';
+        return 'test';
     }
 
     private function regArrForChartLine($param)
