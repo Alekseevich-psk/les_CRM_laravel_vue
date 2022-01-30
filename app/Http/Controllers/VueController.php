@@ -3,25 +3,49 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VueController extends Controller
 {
+    private $labels;
+    private $data;
+
     public function startVue()
     {
         return ['яблоко', 'груша', 'банан'];
     }
 
-    public function chartData()
+    public function chartLine(Request $request)
     {
+        $this->labels = $request->labels;
+        $this->data = $request->chData;
+
+        return $this->regArrForChartLine($request->message);
+
+    }
+
+    private function regArrForChartLine($param)
+    {
+
+        if(isset($param) && $param != 0) {
+            array_push( $this->data, $param );
+            $index = end( $this->labels );
+            $index++;
+            array_push( $this->labels, $index++ );
+        }
+
         return [
-            'labels' => [1, 2, 3, 4],
+            'labels' => $this->labels,
             'datasets' => [
                 [
                     'label' => 'Продажи',
                     'backgroundColor' => '#F26202',
-                    'data' => [15000, 5000, 10000, 30000],
+                    'data' => $this->data,
                 ]
-            ]
+            ],
+            'shData' => $this->data,
+            
         ];
     }
+
 }

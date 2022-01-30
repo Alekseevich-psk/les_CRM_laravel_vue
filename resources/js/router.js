@@ -19,9 +19,9 @@ const routes = [
         title: 'blade-vue'
     },
     {
-        path: "/chart",
+        path: "/chart-line",
         component: Chart,
-        title: 'Chart.js'
+        title: 'Chart-line'
     }
 ];
 

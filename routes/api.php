@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/get', [VueController::class, 'startVue']);
-Route::get('/chart', [VueController::class, 'chartData']);
+Route::any('/chart-line', [VueController::class, 'chartLine']);

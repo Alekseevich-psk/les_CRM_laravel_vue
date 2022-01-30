@@ -2174,6 +2174,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2181,19 +2198,42 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      data: []
+      data: [],
+      message: "",
+      labels: [1, 2, 3, 4],
+      chData: [15000, 5000, 10000, 30000]
     };
   },
+  watch: {
+    message: function message() {
+      console.log(this.message);
+    }
+  },
   mounted: function mounted() {
-    this.getData();
+    this.sendDefData();
   },
   methods: {
-    getData: function getData() {
+    q: function q() {
+      return {
+        message: Number(this.message),
+        labels: this.labels,
+        chData: this.chData
+      };
+    },
+    sendDefData: function sendDefData() {
       var _this = this;
 
-      console.log('test');
-      this.axios.get('/api/chart').then(function (response) {
+      this.axios.post("/api/chart-line", this.q()).then(function (response) {
         return _this.data = response.data;
+      });
+    },
+    addData: function addData() {
+      var _this2 = this;
+
+      this.axios.post("/api/chart-line", this.q()).then(function (response) {
+        _this2.labels = response.data.labels;
+        _this2.chData = response.data.shData;
+        _this2.data = response.data;
       });
     }
   }
@@ -2315,9 +2355,9 @@ var routes = [{
   component: _views_Blade__WEBPACK_IMPORTED_MODULE_3__["default"],
   title: 'blade-vue'
 }, {
-  path: "/chart",
+  path: "/chart-line",
   component: _views_Chart__WEBPACK_IMPORTED_MODULE_4__["default"],
-  title: 'Chart.js'
+  title: 'Chart-line'
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
@@ -53542,28 +53582,52 @@ var render = function () {
         },
       }),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "uk-margin" }, [
+        _c("form", [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model.number",
+                value: _vm.message,
+                expression: "message",
+                modifiers: { number: true },
+              },
+            ],
+            staticClass: "uk-input uk-form-width-medium",
+            attrs: { type: "number", placeholder: "Введите значение" },
+            domProps: { value: _vm.message },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.message = _vm._n($event.target.value)
+              },
+              blur: function ($event) {
+                return _vm.$forceUpdate()
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "uk-button uk-button-primary",
+              attrs: { type: "button" },
+              on: { click: _vm.addData },
+            },
+            [_vm._v("\n                Добавить\n            ")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("br"),
+      ]),
     ],
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "uk-margin" }, [
-      _c("input", {
-        staticClass: "uk-input uk-form-width-medium",
-        attrs: { type: "number", placeholder: "Введите значение" },
-      }),
-      _vm._v(" "),
-      _c("button", { staticClass: "uk-button uk-button-primary" }, [
-        _vm._v("Добавить"),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

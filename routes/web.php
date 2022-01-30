@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/{any}', function () {
     return view('index');
 })->where('any', '.*');
+
+
+// Route::any('/test', [VueController::class, 'chartLine']);
